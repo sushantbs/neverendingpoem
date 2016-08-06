@@ -8,10 +8,10 @@ export default class Homepage extends Component {
     super(props);
   }
 
+  // <h2>App Header</h2>
   render () {
     return (
       <div className="app-section">
-        <h2>App Header</h2>
         {this.props.children}
       </div>
     );

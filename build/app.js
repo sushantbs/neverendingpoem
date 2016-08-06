@@ -156,17 +156,15 @@ webpackJsonp([0],{
 	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Homepage).call(this, props));
 	  }
 
+	  // <h2>App Header</h2>
+
+
 	  _createClass(Homepage, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'app-section' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'App Header'
-	        ),
 	        this.props.children
 	      );
 	    }
@@ -566,11 +564,7 @@ webpackJsonp([0],{
 	  _createClass(Homepage, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'This is the home page, bitch!'
-	      );
+	      return _react2.default.createElement('div', null);
 	    }
 	  }]);
 
@@ -616,11 +610,7 @@ webpackJsonp([0],{
 	  _createClass(Searchpage, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'This is the search page'
-	      );
+	      return _react2.default.createElement('div', null);
 	    }
 	  }]);
 
