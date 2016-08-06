@@ -1,5 +1,5 @@
 {
-  "name": "project1",
+  "name": "NeverEndingPoem",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -50,4 +50,5 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
+
 }
