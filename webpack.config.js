@@ -23,11 +23,19 @@ if (process.env.NODE_ENV !== 'development') {
         },
         {
           test: /\.less$/,
-          loader: "style-loader!css-loader!less-loader"
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
         },
         {
-          test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-          loader: 'file-loader?limit=1000000&name=[name].[ext]'
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+        },
+        {
+            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+            loader: 'url-loader?limit=100000'
+        },
+        {
+            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+            loader: 'file-loader?name=[name].[ext]'
         }
       ],
       noParse: [/\.(png|woff|woff2|eot|ttf|svg)$/]
@@ -64,8 +72,16 @@ else {
           loader: "style-loader!css-loader!less-loader"
         },
         {
-          test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-          loader: 'file-loader?limit=1000000&name=[name].[ext]'
+          test: /\.css$/,
+          loader: "style-loader!css-loader"
+        },
+        {
+            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+            loader: 'url-loader?limit=100000'
+        },
+        {
+            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+            loader: 'file-loader?name=[name].[ext]'
         }
       ],
       noParse: [/\.(png|woff|woff2|eot|ttf|svg)$/]
