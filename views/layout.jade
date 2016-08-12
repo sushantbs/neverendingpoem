@@ -2,5 +2,8 @@ doctype html
 html
   head
     title= title
+    - if (env !== 'development') {
+    link(href="/js/style.css" rel="stylesheet")
+    - }
   body
     block content

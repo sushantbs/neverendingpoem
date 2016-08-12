@@ -30,15 +30,15 @@ if (process.env.NODE_ENV !== 'development') {
           loader: ExtractTextPlugin.extract("style-loader", "css-loader")
         },
         {
-            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-            loader: 'url-loader?limit=100000'
+          test: /\.(png|woff|woff2|eot|ttf|svg)/,
+          loader: 'url-loader?limit=1000000'
         },
         {
-            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-            loader: 'file-loader?name=[name].[ext]'
+          test: /\.svg/,
+          loader: 'file-loader?name=[name].[ext]'
         }
       ],
-      noParse: [/\.(png|woff|woff2|eot|ttf|svg)$/]
+      noParse: [/\.(png|woff|woff2|eot|ttf|svg)/]
     },
     plugins: [
       new ExtractTextPlugin('style.css', {allChunks: true}),
@@ -76,15 +76,15 @@ else {
           loader: "style-loader!css-loader"
         },
         {
-            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-            loader: 'url-loader?limit=100000'
+          test: /\.(png|woff|woff2|eot|ttf|svg)/,
+          loader: 'url-loader?limit=1000000'
         },
         {
-            test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-            loader: 'file-loader?name=[name].[ext]'
+          test: /\.(svg)/,
+          loader: 'file-loader?name=[name].[ext]'
         }
       ],
-      noParse: [/\.(png|woff|woff2|eot|ttf|svg)$/]
+      noParse: [/\.(png|woff|woff2|eot|ttf|svg)/]
     },
     plugins: [
       new ExtractTextPlugin('style.css', {allChunks: true}),
