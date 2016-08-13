@@ -1,9 +1,25 @@
 @import (css) "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import (css) "../css/font-awesome.css";
-@import "./reset.less";
+@import "./responsive-resets";
 
 body {
   .app-section {
     background-color: #ccc;
+
+    .tab-content-section {
+      padding: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tab-container{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown-container {
+    display: none;
   }
 }

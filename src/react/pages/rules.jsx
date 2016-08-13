@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../components/header.jsx';
 
-export default class Homepage extends Component {
+export default class Rulespage extends Component {
 
   constructor (props) {
     super(props);
@@ -11,7 +11,7 @@ export default class Homepage extends Component {
     return (
       <div>
         <Header selected={this.props.route.tab} />
-        <div className='tab-content-section'>This is the home page</div>
+        <div className='tab-content-section'>This is the rules page</div>
       </div>);
   }
 }

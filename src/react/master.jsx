@@ -12,7 +12,6 @@ export default class Homepage extends Component {
   render () {
     return (
       <div className="app-section">
-        <div className="fa fa-2x fa-user"></div>
         {this.props.children}
       </div>
     );
