@@ -2220,18 +2220,34 @@ body {
     width: 750px;
   }
 }
-body .app-section {
-  background-color: #ccc;
+body .header {
+  text-align: center;
+  padding: 20px;
+  background-color: #b3ecff;
+}
+body .header .logo {
+  vertical-align: middle;
+  display: inline-block;
+  width: 46px;
+  height: 78px;
+}
+body .header .heading-text {
+  padding: 20px;
+  vertical-align: middle;
+  display: inline-block;
+}
+body .app-section .tab-container {
+  background-color: #e5e5e5;
 }
 body .app-section .tab-content-section {
   padding: 10px;
 }
-@media screen and (max-width: 767px) {
+@media all and (max-device-width: 767px) {
   .tab-container {
     display: none;
   }
 }
-@media screen and (min-width: 768px) {
+@media all and (min-device-width: 768px) {
   .dropdown-container {
     display: none;
   }

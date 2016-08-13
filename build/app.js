@@ -410,8 +410,32 @@ webpackJsonp([0],[
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'app-section' },
-	        this.props.children
+	        { className: 'master-container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'full-width header' },
+	          _react2.default.createElement('img', { className: 'logo', src: '/imgs/TempLogo.png' }),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'heading-text' },
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              ' NEVER ENDING POEM '
+	            ),
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              ' One man\'s dream, populated by many '
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'app-section' },
+	          this.props.children
+	        ),
+	        _react2.default.createElement('div', { className: 'full-width footer' })
 	      );
 	    }
 	  }]);

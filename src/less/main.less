@@ -3,8 +3,29 @@
 @import "./responsive-resets";
 
 body {
+  .header {
+    text-align: center;
+    padding: 20px;
+    background-color: #b3ecff;
+
+    .logo {
+      vertical-align: middle;
+      display: inline-block;
+      width: 46px;
+      height: 78px
+    }
+
+    .heading-text{
+      padding: 20px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+
   .app-section {
-    background-color: #ccc;
+    .tab-container {
+      background-color: #e5e5e5;
+    }
 
     .tab-content-section {
       padding: 10px;
@@ -12,13 +33,13 @@ body {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media all and (max-device-width: 767px) {
   .tab-container{
     display: none;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media all and (min-device-width: 768px) {
   .dropdown-container {
     display: none;
   }
