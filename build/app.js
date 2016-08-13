@@ -384,6 +384,8 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(176);
+
 	var _reactBootstrap = __webpack_require__(242);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -406,6 +408,11 @@ webpackJsonp([0],[
 	  }
 
 	  _createClass(Homepage, [{
+	    key: 'onMenuItemClick',
+	    value: function onMenuItemClick(eventKey) {
+	      _reactRouter.browserHistory.push('/' + eventKey);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -414,6 +421,48 @@ webpackJsonp([0],[
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'full-width header' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'dropdown-container' },
+	            _react2.default.createElement(
+	              _reactBootstrap.Dropdown,
+	              { bsSize: 'large', id: 'dropdown-custom-1', onSelect: this.onMenuItemClick },
+	              _react2.default.createElement(
+	                _reactBootstrap.Dropdown.Toggle,
+	                { noCaret: true },
+	                _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'menu-hamburger' })
+	              ),
+	              _react2.default.createElement(
+	                _reactBootstrap.Dropdown.Menu,
+	                { className: 'super-colors' },
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 'home' },
+	                  'Home'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 'rules' },
+	                  'Rules'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 'poem' },
+	                  'The Poem'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 'about' },
+	                  'About'
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.MenuItem,
+	                  { eventKey: 'contact' },
+	                  'Contact'
+	                )
+	              )
+	            )
+	          ),
 	          _react2.default.createElement('img', { className: 'logo', src: '/imgs/TempLogo.png' }),
 	          _react2.default.createElement(
 	            'div',
@@ -19372,48 +19421,6 @@ webpackJsonp([0],[
 	            _react2.default.createElement(_reactBootstrap.Tab, { eventKey: 'poem', title: 'The Poem' }),
 	            _react2.default.createElement(_reactBootstrap.Tab, { eventKey: 'about', title: 'About' }),
 	            _react2.default.createElement(_reactBootstrap.Tab, { eventKey: 'contact', title: 'Contact' })
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'dropdown-container' },
-	          _react2.default.createElement(
-	            _reactBootstrap.Dropdown,
-	            { bsSize: 'large', id: 'dropdown-custom-1', onSelect: this.onTabClick },
-	            _react2.default.createElement(
-	              _reactBootstrap.Dropdown.Toggle,
-	              { noCaret: true },
-	              _react2.default.createElement(_reactBootstrap.Glyphicon, { glyph: 'menu-hamburger' })
-	            ),
-	            _react2.default.createElement(
-	              _reactBootstrap.Dropdown.Menu,
-	              { className: 'super-colors' },
-	              _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 'home' },
-	                'Home'
-	              ),
-	              _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 'rules' },
-	                'Rules'
-	              ),
-	              _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 'poem' },
-	                'The Poem'
-	              ),
-	              _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 'about' },
-	                'About'
-	              ),
-	              _react2.default.createElement(
-	                _reactBootstrap.MenuItem,
-	                { eventKey: 'contact' },
-	                'Contact'
-	              )
-	            )
 	          )
 	        )
 	      );

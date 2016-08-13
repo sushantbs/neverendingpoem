@@ -7,6 +7,7 @@ body {
     text-align: center;
     padding: 20px;
     background-color: #b3ecff;
+    position: relative;
 
     .logo {
       vertical-align: middle;
@@ -20,13 +21,22 @@ body {
       vertical-align: middle;
       display: inline-block;
     }
+
+    .dropdown-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 
-  .app-section {
-    .tab-container {
-      background-color: #e5e5e5;
-    }
+  .tab-container {
+    background-color: #e5e5e5;
+  }
 
+
+  .app-section {
     .tab-content-section {
       padding: 10px;
     }
@@ -34,6 +44,10 @@ body {
 }
 
 @media all and (max-device-width: 767px) {
+  body {
+    font-size: 36px;
+  }
+
   .tab-container{
     display: none;
   }

@@ -2206,6 +2206,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 .app-section {
   margin: 0 auto;
@@ -2224,6 +2225,7 @@ body .header {
   text-align: center;
   padding: 20px;
   background-color: #b3ecff;
+  position: relative;
 }
 body .header .logo {
   vertical-align: middle;
@@ -2236,13 +2238,23 @@ body .header .heading-text {
   vertical-align: middle;
   display: inline-block;
 }
-body .app-section .tab-container {
+body .header .dropdown-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+body .tab-container {
   background-color: #e5e5e5;
 }
 body .app-section .tab-content-section {
   padding: 10px;
 }
 @media all and (max-device-width: 767px) {
+  body {
+    font-size: 36px;
+  }
   .tab-container {
     display: none;
   }

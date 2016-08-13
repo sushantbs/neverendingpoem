@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Tabs, Tab, Dropdown, Glyphicon, MenuItem} from 'react-bootstrap';
+import {Tabs, Tab} from 'react-bootstrap';
 import {Link, browserHistory} from 'react-router';
 
 export default class Header extends Component {
@@ -25,20 +25,6 @@ export default class Header extends Component {
             <Tab eventKey={'contact'} title='Contact' />
           </Tabs>
         </div>
-        <div className='dropdown-container'>
-          <Dropdown bsSize='large' id="dropdown-custom-1" onSelect={this.onTabClick}>
-            <Dropdown.Toggle noCaret={true} >
-              <Glyphicon glyph="menu-hamburger" />
-            </Dropdown.Toggle>
-            <Dropdown.Menu className="super-colors">
-              <MenuItem eventKey='home'>Home</MenuItem>
-              <MenuItem eventKey='rules'>Rules</MenuItem>
-              <MenuItem eventKey='poem'>The Poem</MenuItem>
-              <MenuItem eventKey='about'>About</MenuItem>
-              <MenuItem eventKey='contact'>Contact</MenuItem>
-            </Dropdown.Menu>
-          </Dropdown>
-      </div>
-    </div>)
+      </div>);
   }
 }
