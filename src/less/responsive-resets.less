@@ -5,18 +5,28 @@ html, body {
   width: 100%;
 }
 
+.centered {
+  text-align: center;
+}
+
 .app-section {
   margin: 0 auto;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-device-width: 767px) {
   .app-section{
-    width: 100%;
+    width: auto;
   }
+
+  p {
+    font-size: 18px;
+  }
+
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-device-width: 768px) {
   .app-section {
     width: 750px;
   }
+
 }

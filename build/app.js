@@ -19477,9 +19477,62 @@ webpackJsonp([0],[
 	        null,
 	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
+	          'h3',
+	          { className: 'centered' },
+	          'About the Poem'
+	        ),
+	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
-	          'This is the about page'
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'It was on a hot summer day many years ago',
+	            _react2.default.createElement('br', null),
+	            'no electricity, I was wiping sweat from my brow',
+	            _react2.default.createElement('br', null),
+	            'I had this idea to write a poem with no end',
+	            _react2.default.createElement('br', null),
+	            'perhaps to document a lot was my intent.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'So I began, writing a line or two whenever I felt like,',
+	            _react2.default.createElement('br', null),
+	            'and writing about whatever I felt like.',
+	            _react2.default.createElement('br', null),
+	            'And of course, I had some sort of a hook to maintain continuity.',
+	            _react2.default.createElement('br', null),
+	            'A few months later, and a few hundred lines later,',
+	            _react2.default.createElement('br', null),
+	            'I lost the writing pad I had been scribbling in,',
+	            _react2.default.createElement('br', null),
+	            'and after moaning for a bit, forgot all about it.',
+	            _react2.default.createElement('br', null),
+	            'Last year some time, I was telling some friend about it',
+	            _react2.default.createElement('br', null),
+	            'and I suddenly realised I could do it all over again,',
+	            _react2.default.createElement('br', null),
+	            'and this time, bring in other people too.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'This is the result. The site is not perfect yet, but it works.',
+	            _react2.default.createElement('br', null),
+	            'And I hope it will attract both those who like to write and also to talk about it,',
+	            _react2.default.createElement('br', null),
+	            'as well as those who think they have no talent but like to write anyway.',
+	            _react2.default.createElement('br', null),
+	            'Since this is totally anonymous, no one is judging anyone (except me, of course!)',
+	            _react2.default.createElement('br', null),
+	            'and the resultant verse will be an amalgamation of people',
+	            _react2.default.createElement('br', null),
+	            'cutting across borders, age, gender, race and various other boundaries that separate us usually.',
+	            _react2.default.createElement('br', null),
+	            'What it will read like is anyone\'s guess, but the process promises to be fun!'
+	          )
 	        )
 	      );
 	    }
@@ -19535,9 +19588,43 @@ webpackJsonp([0],[
 	        null,
 	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
+	          'h3',
+	          { className: 'centered' },
+	          'Rules'
+	        ),
+	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
-	          'This is the rules page'
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Rule #1: Use any word from the previous line, so long as it is not something lame like an article, preposition, pronoun and other such. You can use derivatives too. Refer to the first page of the poem for examples.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Rule #2: The rhyme scheme is aa, bb, cc, dd, and so on. So you submit two lines with a rhyme scheme of your choice. Again, see the poem\'s first page for examples. Also, If you find a hanging line without a rhyme, feel free to complete that couplet too.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Rule #3: Propaganda of any sort will not be tolerated. If you must rant, do it elsewhere. Same goes for leaving any links to anything. This is not a space to promote yourself in any way.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Rule #4: The poem was started in English, so stick to that language.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Rule #5: There is a limit of 80 characters in any one line.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Rule #6: Any contributions not in line with the rules will be deleted.'
+	          )
 	        )
 	      );
 	    }
@@ -19651,9 +19738,34 @@ webpackJsonp([0],[
 	        null,
 	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
+	          'h3',
+	          { className: 'centered' },
+	          'Contact'
+	        ),
+	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
-	          'This is the contact page'
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'If you make a mistake in your submission, there is no way to correct it. Except, you can send me an email at ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'mailto:admin@neverendingpoem.com', target: '_blank' },
+	              'admin@neverendingpoem.com'
+	            ),
+	            ', specifically stating what mistake you made and what correction you want. I will get to it soon enough.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Also, there is no place for you to leave any comments. Writing a poem together should be social enough, right? However, if there is something you want to say to me, use the same email address given above, and I will get back to you if a reply is in order. However, if I get spam from you, I know how to block your IP address. :)'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'I know better than anyone else that this site is not perfect, but I ain\'t no techie. So if you have any ideas to make it better and if you can help and also want to help, get in touch! I may not agree with your idea(s) but maybe I will.'
+	          )
 	        )
 	      );
 	    }
