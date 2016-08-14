@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== 'development') {
       loaders: [
         {
           test: /\.(js|jsx)$/,
-          loaders: ['babel?presets[]=stage-0,presets[]=es2015,presets[]=react'],
+          loaders: ['babel?presets[]=react,presets[]=es2015,presets[]=stage-0'],
           include: path.join(__dirname, 'src')
         },
         {
@@ -64,7 +64,7 @@ else {
       loaders: [
         {
           test: /\.(js|jsx)$/,
-          loaders: ['react-hot', 'babel?presets[]=stage-0,presets[]=es2015,presets[]=react'],
+          loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'],
           include: path.join(__dirname, 'src')
         },
         {

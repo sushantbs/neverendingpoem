@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../components/header.jsx';
+import Verses from '../components/verse.jsx';
+import AddVerse from '../components/add-verse.jsx';
 
 export default class Homepage extends Component {
 
@@ -11,7 +13,9 @@ export default class Homepage extends Component {
     return (
       <div>
         <Header selected={this.props.route.tab} />
-        <div className='tab-content-section'>This is the home page</div>
+        <div className='tab-content-section'>
+          <Verses page={-1} addVerse={true} />
+        </div>
       </div>);
   }
 }

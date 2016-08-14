@@ -22,13 +22,16 @@
     "es6-promise": "^3.2.1",
     "express": "^4.12.4",
     "jade": "^1.9.2",
+    "lodash": "^4.15.0",
+    "mongodb": "^2.2.5",
     "morgan": "~1.5.3",
     "react": "^15.1.0",
     "react-bootstrap": "^0.30.2",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
     "serve-favicon": "~2.2.1",
-    "serve-static": "^1.11.1"
+    "serve-static": "^1.11.1",
+    "superagent": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
