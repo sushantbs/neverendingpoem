@@ -8,7 +8,8 @@ export default class AddVerse extends Component {
   state = {
     firstLine: '',
     secondLine: '',
-    saving: false
+    saving: false,
+    error: null
   }
 
   constructor (props) {
@@ -27,8 +28,19 @@ export default class AddVerse extends Component {
     this.setState(update);
   }
 
-  submitLines () {
+  submitLines (e) {
+
+    e.preventDefault();
+    
     let {firstLine, secondLine} = this.state;
+
+    if (!_.trim(firstLine) || !_.trim(secondLine)) {
+      this.setState({
+        error: '*Neither of the lines can be blank'
+      });
+
+      return;
+    }
 
     request
       .post('/api/addVerse')
@@ -41,7 +53,7 @@ export default class AddVerse extends Component {
           return;
         }
 
-        this.setState({saving: false, firstLine: '', secondLine: ''});
+        this.setState({error: null, saving: false, firstLine: '', secondLine: ''});
         this.props.onAdd();
       });
 
@@ -52,9 +64,12 @@ export default class AddVerse extends Component {
     return (
       <div className='add-verse-container'>
         <h4>Add Your Verse</h4>
-        <input placeholder='First line of your verse' value={this.state.firstLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'firstLine')} />
-        <input placeholder='Second line of your verse' value={this.state.secondLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'secondLine')} />
-        <Button bsStyle='primary' onClick={this.submitLines}>SUBMIT</Button>
+        {this.state.error ? <div className='error'>{this.state.error}</div> : null}
+        <form onSubmit={this.submitLines}>
+          <input className='verse-input' placeholder='First line of your verse' value={this.state.firstLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'firstLine')} />
+          <input className='verse-input' placeholder='Second line of your verse' value={this.state.secondLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'secondLine')} />
+          <input className='button' type='submit' value='SUBMIT'/>
+        </form>
       </div>);
   }
 }
