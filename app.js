@@ -154,7 +154,7 @@ function startMongoClient () {
   var mongodb = require('mongodb');
   var MongoClient = mongodb.MongoClient;
 
-  var url = process.env.OPENSHIFT_MONGODB_DB_URL ? (process.env.OPENSHIFT_MONGODB_DB_URL + '/nep') : 'mongodb://localhost:27017/nep'
+  var url = process.env.OPENSHIFT_MONGODB_DB_HOST ? ('mongodb://' process.env.OPENSHIFT_MONGODB_DB_HOST + ':' + process.env.OPENSHIFT_MONGODB_DB_PORT + '/nep') : 'mongodb://localhost:27017/nep'
 
   MongoClient.connect(url, function(err, db) {
 
