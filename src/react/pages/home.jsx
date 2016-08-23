@@ -14,7 +14,7 @@ export default class Homepage extends Component {
       <div>
         <Header selected={this.props.route.tab} />
         <div className='tab-content-section'>
-          <Verses page={-1} addVerse={true} />
+          <Verses pageNum={-1} addVerse={true} pagination='simple' />
         </div>
       </div>);
   }
