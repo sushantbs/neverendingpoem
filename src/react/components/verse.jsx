@@ -6,7 +6,12 @@ import {Pagination} from 'react-bootstrap';
 
 export default class VerseComponent extends Component {
 
-  state = {
+	defaultProps = {
+		pageNum: 0,
+		pageSize: 20
+	}
+
+	state = {
     verses: [],
     loading: false,
     saving: false,
@@ -48,11 +53,13 @@ export default class VerseComponent extends Component {
 
   componentDidMount () {
 		this.state.pageNum = this.props.pageNum;
+		this.state.pageSize = this.props.pageSize || this.state.pageSize;
     this.fetchVerses();
   }
 
 	componentWillReceiveProps (newProps) {
 		this.state.pageNum = newProps.pageNum;
+		this.state.pageSize = newProps.pageSize || this.state.pageSize;
 	}
 
 	onPageChange (pageNum) {
@@ -68,7 +75,7 @@ export default class VerseComponent extends Component {
 		let items = Math.ceil(this.state.totalCount / this.state.pageSize),
 			pageNum = this.state.pageNum < 0 ? (items + this.state.pageNum + 1) : (this.state.pageNum + 1);
 
-		if (this.props.pagination) {
+		if (this.props.pagination === 'simple') {
 			return (
 				<div className='centered'>
 					<Pagination
@@ -85,21 +92,34 @@ export default class VerseComponent extends Component {
 				</div>
 			)
 		}
+		else if (this.props.pagination === 'infinite') {
+			// listen of scroll event
+		}
+		else {
+
+		}
 
 		return null;
+	}
+
+	componentWillUnmount () {
+		if (this.props.pagination === 'infinite') {
+			// unlisten to scroll event
+		}
 	}
 
   render () {
     return (
       <div className='verse-container'>
 				{this.renderPagination()}
-        {_.map(this.state.verses, (verse, index) => (verse.verse ? (
-          <div key={'verse' + index} className='verse-block'>
-            <div className='verse-line first-line'>{verse.verse[0]}</div>
-            <div className='verse-line second-line'>{verse.verse[1]}</div>
-          </div>
-        ) : null))}
-        {this.state.loading ? (<div className='verse-line loader'>Loading...</div>) : null}
+        {this.state.loading ? (<div className='verse-line loader'>Loading...</div>) :
+					_.map(this.state.verses, (verse, index) => (verse.verse ? (
+	          <div key={'verse' + index} className='verse-block'>
+	            <div className='verse-line first-line'>{verse.verse[0]}</div>
+	            <div className='verse-line second-line'>{verse.verse[1]}</div>
+	          </div>
+	        ) : null))
+				}
         {this.props.addVerse ? (<AddVerse onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
       </div>
     )

@@ -333,25 +333,29 @@ webpackJsonp([0],[
 
 	var _master2 = _interopRequireDefault(_master);
 
-	var _home = __webpack_require__(496);
+	var _home = __webpack_require__(497);
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _about = __webpack_require__(507);
+	var _about = __webpack_require__(508);
 
 	var _about2 = _interopRequireDefault(_about);
 
-	var _rules = __webpack_require__(508);
+	var _rules = __webpack_require__(509);
 
 	var _rules2 = _interopRequireDefault(_rules);
 
-	var _poem = __webpack_require__(509);
+	var _poem = __webpack_require__(510);
 
 	var _poem2 = _interopRequireDefault(_poem);
 
-	var _contact = __webpack_require__(510);
+	var _contact = __webpack_require__(511);
 
 	var _contact2 = _interopRequireDefault(_contact);
+
+	var _legalese = __webpack_require__(512);
+
+	var _legalese2 = _interopRequireDefault(_legalese);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -363,7 +367,8 @@ webpackJsonp([0],[
 	  _react2.default.createElement(_reactRouter.Route, { path: 'rules', tab: 'rules', component: _rules2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'poem', tab: 'poem', component: _poem2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'about', tab: 'about', component: _about2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: 'contact', tab: 'contact', component: _contact2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: 'contact', tab: 'contact', component: _contact2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'legalese', component: _legalese2.default })
 	);
 
 	exports.default = AppRoutes;
@@ -388,6 +393,10 @@ webpackJsonp([0],[
 
 	var _reactBootstrap = __webpack_require__(242);
 
+	var _footer = __webpack_require__(495);
+
+	var _footer2 = _interopRequireDefault(_footer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -396,7 +405,7 @@ webpackJsonp([0],[
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(495);
+	__webpack_require__(496);
 
 	var Homepage = function (_Component) {
 	  _inherits(Homepage, _Component);
@@ -484,7 +493,11 @@ webpackJsonp([0],[
 	          { className: 'app-section' },
 	          this.props.children
 	        ),
-	        _react2.default.createElement('div', { className: 'full-width footer' })
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'full-width footer' },
+	          _react2.default.createElement(_footer2.default, null)
+	        )
 	      );
 	    }
 	  }]);
@@ -19297,12 +19310,102 @@ webpackJsonp([0],[
 
 /***/ },
 /* 495 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactBootstrap = __webpack_require__(242);
+
+	var _reactRouter = __webpack_require__(176);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Legalese = function (_Component) {
+		_inherits(Legalese, _Component);
+
+		function Legalese(props) {
+			_classCallCheck(this, Legalese);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Legalese).call(this, props));
+		}
+
+		_createClass(Legalese, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'footer-section' },
+					_react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'footer-content' },
+							_react2.default.createElement(
+								'center',
+								null,
+								_react2.default.createElement(
+									'h2',
+									null,
+									'Legalese'
+								),
+								_react2.default.createElement(
+									'a',
+									{ rel: 'license', href: 'http://creativecommons.org/licenses/by-nc-sa/4.0/' },
+									_react2.default.createElement('img', { alt: 'Creative Commons License', style: { borderWidth: 0 }, src: 'https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png' })
+								),
+								_react2.default.createElement('br', null),
+								'Never Ending Poem by Himanshu Goenka is licensed under a ',
+								_react2.default.createElement(
+									'a',
+									{ rel: 'license', href: 'http://creativecommons.org/licenses/by-nc-sa/4.0/' },
+									'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License'
+								),
+								'.',
+								_react2.default.createElement('br', null),
+								'Permissions beyond the scope of this license may be available at ',
+								_react2.default.createElement(
+									_reactRouter.Link,
+									{ to: '/legalese', href: 'legalese' },
+									'Legalese'
+								),
+								'.'
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return Legalese;
+	}(_react.Component);
+
+	exports.default = Legalese;
+
+/***/ },
+/* 496 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19317,15 +19420,15 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(497);
+	var _header = __webpack_require__(498);
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _verse = __webpack_require__(498);
+	var _verse = __webpack_require__(499);
 
 	var _verse2 = _interopRequireDefault(_verse);
 
-	var _addVerse = __webpack_require__(506);
+	var _addVerse = __webpack_require__(507);
 
 	var _addVerse2 = _interopRequireDefault(_addVerse);
 
@@ -19356,7 +19459,7 @@ webpackJsonp([0],[
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
-	          _react2.default.createElement(_verse2.default, { pageNum: -1, addVerse: true, pagination: 'simple' })
+	          _react2.default.createElement(_verse2.default, { pageNum: -1, addVerse: true, pageSize: 2, pagination: 'simple' })
 	        )
 	      );
 	    }
@@ -19368,7 +19471,7 @@ webpackJsonp([0],[
 	exports.default = Homepage;
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19441,13 +19544,13 @@ webpackJsonp([0],[
 	exports.default = Header;
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+		value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19456,15 +19559,15 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _superagent = __webpack_require__(499);
+	var _superagent = __webpack_require__(500);
 
 	var _superagent2 = _interopRequireDefault(_superagent);
 
-	var _lodash = __webpack_require__(504);
+	var _lodash = __webpack_require__(505);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _addVerse = __webpack_require__(506);
+	var _addVerse = __webpack_require__(507);
 
 	var _addVerse2 = _interopRequireDefault(_addVerse);
 
@@ -19479,136 +19582,150 @@ webpackJsonp([0],[
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var VerseComponent = function (_Component) {
-	  _inherits(VerseComponent, _Component);
+		_inherits(VerseComponent, _Component);
 
-	  function VerseComponent(props) {
-	    _classCallCheck(this, VerseComponent);
+		function VerseComponent(props) {
+			_classCallCheck(this, VerseComponent);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(VerseComponent).call(this, props));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(VerseComponent).call(this, props));
 
-	    _this.state = {
-	      verses: [],
-	      loading: false,
-	      saving: false,
-	      lastId: null,
-	      pageNum: 0,
-	      pageSize: 10,
-	      totalCount: 0
-	    };
+			_this.defaultProps = {
+				pageNum: 0,
+				pageSize: 20
+			};
+			_this.state = {
+				verses: [],
+				loading: false,
+				saving: false,
+				lastId: null,
+				pageNum: 0,
+				pageSize: 10,
+				totalCount: 0
+			};
 
-	    _this.updatePoemPage = _this.updatePoemPage.bind(_this);
-	    return _this;
-	  }
+			_this.updatePoemPage = _this.updatePoemPage.bind(_this);
+			return _this;
+		}
 
-	  _createClass(VerseComponent, [{
-	    key: 'fetchVerses',
-	    value: function fetchVerses() {
-	      var _this2 = this;
+		_createClass(VerseComponent, [{
+			key: 'fetchVerses',
+			value: function fetchVerses() {
+				var _this2 = this;
 
-	      _superagent2.default.get('/api/versePage?a=' + Math.random()).query({ pageNum: this.state.pageNum, pageSize: this.state.pageSize }).set('accept', 'application/json').set('content-type', 'application/json').end(function (err, response) {
-	        _this2.setState({
-	          loading: false,
-	          verses: response.body.verses,
-	          totalCount: response.body.totalCount
-	        });
-	      });
+				_superagent2.default.get('/api/versePage?a=' + Math.random()).query({ pageNum: this.state.pageNum, pageSize: this.state.pageSize }).set('accept', 'application/json').set('content-type', 'application/json').end(function (err, response) {
+					_this2.setState({
+						loading: false,
+						verses: response.body.verses,
+						totalCount: response.body.totalCount
+					});
+				});
 
-	      this.setState({
-	        loading: true
-	      });
-	    }
-	  }, {
-	    key: 'updatePoemPage',
-	    value: function updatePoemPage(verse) {
-	      this.fetchVerses();
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.state.pageNum = this.props.pageNum;
-	      this.fetchVerses();
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(newProps) {
-	      this.state.pageNum = newProps.pageNum;
-	    }
-	  }, {
-	    key: 'onPageChange',
-	    value: function onPageChange(pageNum) {
+				this.setState({
+					loading: true
+				});
+			}
+		}, {
+			key: 'updatePoemPage',
+			value: function updatePoemPage(verse) {
+				this.fetchVerses();
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				this.state.pageNum = this.props.pageNum;
+				this.state.pageSize = this.props.pageSize || this.state.pageSize;
+				this.fetchVerses();
+			}
+		}, {
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps(newProps) {
+				this.state.pageNum = newProps.pageNum;
+				this.state.pageSize = newProps.pageSize || this.state.pageSize;
+			}
+		}, {
+			key: 'onPageChange',
+			value: function onPageChange(pageNum) {
 
-	      //let pageNum = selectedEvent.eventKey - 1;
+				//let pageNum = selectedEvent.eventKey - 1;
 
-	      this.state.pageNum = pageNum - 1;
-	      this.fetchVerses();
-	    }
-	  }, {
-	    key: 'renderPagination',
-	    value: function renderPagination() {
+				this.state.pageNum = pageNum - 1;
+				this.fetchVerses();
+			}
+		}, {
+			key: 'renderPagination',
+			value: function renderPagination() {
 
-	      var items = Math.ceil(this.state.totalCount / this.state.pageSize),
-	          pageNum = this.state.pageNum < 0 ? items + this.state.pageNum + 1 : this.state.pageNum + 1;
+				var items = Math.ceil(this.state.totalCount / this.state.pageSize),
+				    pageNum = this.state.pageNum < 0 ? items + this.state.pageNum + 1 : this.state.pageNum + 1;
 
-	      if (this.props.pagination) {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'centered' },
-	          _react2.default.createElement(_reactBootstrap.Pagination, {
-	            bsSize: 'medium',
-	            first: true,
-	            last: true,
-	            prev: true,
-	            next: true,
-	            ellipsis: true,
-	            items: items,
-	            maxButtons: items > 3 ? 3 : items,
-	            activePage: pageNum,
-	            onSelect: this.onPageChange.bind(this) })
-	        );
-	      }
+				if (this.props.pagination === 'simple') {
+					return _react2.default.createElement(
+						'div',
+						{ className: 'centered' },
+						_react2.default.createElement(_reactBootstrap.Pagination, {
+							bsSize: 'medium',
+							first: true,
+							last: true,
+							prev: true,
+							next: true,
+							ellipsis: true,
+							items: items,
+							maxButtons: items > 3 ? 3 : items,
+							activePage: pageNum,
+							onSelect: this.onPageChange.bind(this) })
+					);
+				} else if (this.props.pagination === 'infinite') {
+					// listen of scroll event
+				} else {}
 
-	      return null;
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'verse-container' },
-	        this.renderPagination(),
-	        _lodash2.default.map(this.state.verses, function (verse, index) {
-	          return verse.verse ? _react2.default.createElement(
-	            'div',
-	            { key: 'verse' + index, className: 'verse-block' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'verse-line first-line' },
-	              verse.verse[0]
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'verse-line second-line' },
-	              verse.verse[1]
-	            )
-	          ) : null;
-	        }),
-	        this.state.loading ? _react2.default.createElement(
-	          'div',
-	          { className: 'verse-line loader' },
-	          'Loading...'
-	        ) : null,
-	        this.props.addVerse ? _react2.default.createElement(_addVerse2.default, { onAdd: this.updatePoemPage, disabled: this.state.saving }) : null
-	      );
-	    }
-	  }]);
+				return null;
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				if (this.props.pagination === 'infinite') {
+					// unlisten to scroll event
+				}
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'verse-container' },
+					this.renderPagination(),
+					this.state.loading ? _react2.default.createElement(
+						'div',
+						{ className: 'verse-line loader' },
+						'Loading...'
+					) : _lodash2.default.map(this.state.verses, function (verse, index) {
+						return verse.verse ? _react2.default.createElement(
+							'div',
+							{ key: 'verse' + index, className: 'verse-block' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'verse-line first-line' },
+								verse.verse[0]
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'verse-line second-line' },
+								verse.verse[1]
+							)
+						) : null;
+					}),
+					this.props.addVerse ? _react2.default.createElement(_addVerse2.default, { onAdd: this.updatePoemPage, disabled: this.state.saving }) : null
+				);
+			}
+		}]);
 
-	  return VerseComponent;
+		return VerseComponent;
 	}(_react.Component);
 
 	exports.default = VerseComponent;
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19625,9 +19742,9 @@ webpackJsonp([0],[
 	  root = this;
 	}
 
-	var Emitter = __webpack_require__(500);
-	var requestBase = __webpack_require__(501);
-	var isObject = __webpack_require__(502);
+	var Emitter = __webpack_require__(501);
+	var requestBase = __webpack_require__(502);
+	var isObject = __webpack_require__(503);
 
 	/**
 	 * Noop.
@@ -19639,7 +19756,7 @@ webpackJsonp([0],[
 	 * Expose `request`.
 	 */
 
-	var request = module.exports = __webpack_require__(503).bind(null, Request);
+	var request = module.exports = __webpack_require__(504).bind(null, Request);
 
 	/**
 	 * Determine XHR.
@@ -20590,7 +20707,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
@@ -20759,13 +20876,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Module of mixed-in functions shared between node and client code
 	 */
-	var isObject = __webpack_require__(502);
+	var isObject = __webpack_require__(503);
 
 	/**
 	 * Clear previous timeout.
@@ -21112,7 +21229,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports) {
 
 	/**
@@ -21131,7 +21248,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports) {
 
 	// The node and browser modules expose versions of this with the
@@ -21169,7 +21286,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -37906,10 +38023,10 @@ webpackJsonp([0],[
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(505)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(506)(module)))
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -37925,7 +38042,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37940,13 +38057,13 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _superagent = __webpack_require__(499);
+	var _superagent = __webpack_require__(500);
 
 	var _superagent2 = _interopRequireDefault(_superagent);
 
 	var _reactBootstrap = __webpack_require__(242);
 
-	var _lodash = __webpack_require__(504);
+	var _lodash = __webpack_require__(505);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -38053,7 +38170,7 @@ webpackJsonp([0],[
 	exports.default = AddVerse;
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38068,7 +38185,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(497);
+	var _header = __webpack_require__(498);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38164,7 +38281,7 @@ webpackJsonp([0],[
 	exports.default = Aboutpage;
 
 /***/ },
-/* 508 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38179,7 +38296,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(497);
+	var _header = __webpack_require__(498);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38256,7 +38373,7 @@ webpackJsonp([0],[
 	exports.default = Rulespage;
 
 /***/ },
-/* 509 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38271,15 +38388,15 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(497);
+	var _header = __webpack_require__(498);
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _verse = __webpack_require__(498);
+	var _verse = __webpack_require__(499);
 
 	var _verse2 = _interopRequireDefault(_verse);
 
-	var _addVerse = __webpack_require__(506);
+	var _addVerse = __webpack_require__(507);
 
 	var _addVerse2 = _interopRequireDefault(_addVerse);
 
@@ -38310,7 +38427,7 @@ webpackJsonp([0],[
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
-	          _react2.default.createElement(_verse2.default, { scrollUp: '...', page: -1, addVerse: false })
+	          _react2.default.createElement(_verse2.default, { scrollUp: '...', pagination: 'infinite', pageNum: 0, pageSize: 100, addVerse: false })
 	        )
 	      );
 	    }
@@ -38322,7 +38439,7 @@ webpackJsonp([0],[
 	exports.default = Poempage;
 
 /***/ },
-/* 510 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38337,7 +38454,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(497);
+	var _header = __webpack_require__(498);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38403,6 +38520,88 @@ webpackJsonp([0],[
 	}(_react.Component);
 
 	exports.default = Contactpage;
+
+/***/ },
+/* 512 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _header = __webpack_require__(498);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Legalpage = function (_Component) {
+	  _inherits(Legalpage, _Component);
+
+	  function Legalpage(props) {
+	    _classCallCheck(this, Legalpage);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Legalpage).call(this, props));
+	  }
+
+	  _createClass(Legalpage, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
+	        _react2.default.createElement(
+	          'h3',
+	          { className: 'centered' },
+	          'Legalese'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'tab-content-section' },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Details of the Creative Commons License in use on this site can be read at: ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'http://creativecommons.org/licenses/by-nc-sa/4.0/', target: '_blank' },
+	              'http://creativecommons.org/licenses/by-nc-sa/4.0/'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '1. All content on this website, including that contributed by visitors to the site, can be used by the owner of the website for commercial purposes.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '2. If any visitor-contributed content is used anywhere outside the website by the website owner, no details of the visitor (such as username, IP address, etc.) will be used.'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Legalpage;
+	}(_react.Component);
+
+	exports.default = Legalpage;
 
 /***/ }
 ]);

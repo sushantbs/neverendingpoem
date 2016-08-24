@@ -8,6 +8,7 @@ import About from './pages/about.jsx';
 import Rules from './pages/rules.jsx';
 import Poem from './pages/poem.jsx';
 import Contact from './pages/contact.jsx';
+import Legalese from './pages/legalese.jsx';
 
 var AppRoutes = (
   <Route path="/" component={Master}>
@@ -17,6 +18,7 @@ var AppRoutes = (
     <Route path="poem" tab="poem" component={Poem} />
     <Route path="about" tab="about" component={About} />
     <Route path="contact" tab="contact" component={Contact} />
+		<Route path="legalese" component={Legalese} />
   </Route>
 )
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {browserHistory} from 'react-router';
 import {Dropdown, Glyphicon, MenuItem} from 'react-bootstrap';
+import Footer from './components/footer.jsx';
 
 require('../less/main.less');
 
@@ -42,6 +43,7 @@ export default class Homepage extends Component {
           {this.props.children}
         </div>
         <div className='full-width footer'>
+					<Footer />
         </div>
       </div>
     );

@@ -2296,6 +2296,15 @@ body .app-section .tab-content-section .add-verse-container .verse-input {
   max-width: 500px;
   width: 100%;
 }
+body .footer {
+  background-color: #292929;
+  color: #d5d5d5;
+  padding: 15px;
+}
+body .footer h2 {
+  font-size: 15px;
+  margin-top: 0px;
+}
 @media all and (max-device-width: 767px) {
   body {
     font-size: 36px;
