@@ -144,8 +144,10 @@ module.exports = function (options) {
 					offset = 0;
 
 				if (pageNum < 0) {
-					if (totalCount < result) {
+					if (totalCount <= pageSize) {
 						pageNum = 0;
+						pageSize = 0;
+						offset = result;
 					} else if (pageNum === -1 && (lastPage < (pageSize / 2))) {
 						offset = lastPage;
 						pageNum = totalPages + pageNum - 1;
