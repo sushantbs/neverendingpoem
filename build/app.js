@@ -19356,7 +19356,7 @@ webpackJsonp([0],[
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
-	          _react2.default.createElement(_verse2.default, { page: -1, addVerse: true })
+	          _react2.default.createElement(_verse2.default, { pageNum: -1, addVerse: true, pagination: 'simple' })
 	        )
 	      );
 	    }
@@ -19468,6 +19468,8 @@ webpackJsonp([0],[
 
 	var _addVerse2 = _interopRequireDefault(_addVerse);
 
+	var _reactBootstrap = __webpack_require__(242);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19488,7 +19490,10 @@ webpackJsonp([0],[
 	      verses: [],
 	      loading: false,
 	      saving: false,
-	      lastId: null
+	      lastId: null,
+	      pageNum: 0,
+	      pageSize: 10,
+	      totalCount: 0
 	    };
 
 	    _this.updatePoemPage = _this.updatePoemPage.bind(_this);
@@ -19500,10 +19505,11 @@ webpackJsonp([0],[
 	    value: function fetchVerses() {
 	      var _this2 = this;
 
-	      _superagent2.default.get('/api/allVerses?a=' + Math.random()).set('accept', 'application/json').set('content-type', 'application/json').end(function (err, response) {
+	      _superagent2.default.get('/api/versePage?a=' + Math.random()).query({ pageNum: this.state.pageNum, pageSize: this.state.pageSize }).set('accept', 'application/json').set('content-type', 'application/json').end(function (err, response) {
 	        _this2.setState({
 	          loading: false,
-	          verses: response.body
+	          verses: response.body.verses,
+	          totalCount: response.body.totalCount
 	        });
 	      });
 
@@ -19519,7 +19525,49 @@ webpackJsonp([0],[
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      this.state.pageNum = this.props.pageNum;
 	      this.fetchVerses();
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(newProps) {
+	      this.state.pageNum = newProps.pageNum;
+	    }
+	  }, {
+	    key: 'onPageChange',
+	    value: function onPageChange(pageNum) {
+
+	      //let pageNum = selectedEvent.eventKey - 1;
+
+	      this.state.pageNum = pageNum - 1;
+	      this.fetchVerses();
+	    }
+	  }, {
+	    key: 'renderPagination',
+	    value: function renderPagination() {
+
+	      var items = Math.ceil(this.state.totalCount / this.state.pageSize),
+	          pageNum = this.state.pageNum < 0 ? items + this.state.pageNum + 1 : this.state.pageNum + 1;
+
+	      if (this.props.pagination) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'centered' },
+	          _react2.default.createElement(_reactBootstrap.Pagination, {
+	            bsSize: 'medium',
+	            first: true,
+	            last: true,
+	            prev: true,
+	            next: true,
+	            ellipsis: true,
+	            items: items,
+	            maxButtons: items > 3 ? 3 : items,
+	            activePage: pageNum,
+	            onSelect: this.onPageChange.bind(this) })
+	        );
+	      }
+
+	      return null;
 	    }
 	  }, {
 	    key: 'render',
@@ -19527,6 +19575,7 @@ webpackJsonp([0],[
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'verse-container' },
+	        this.renderPagination(),
 	        _lodash2.default.map(this.state.verses, function (verse, index) {
 	          return verse.verse ? _react2.default.createElement(
 	            'div',
