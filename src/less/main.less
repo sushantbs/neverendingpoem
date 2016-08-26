@@ -1,13 +1,17 @@
-@import (css) "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../node_modules/bootstrap/less/bootstrap.less";
 @import (css) "../css/font-awesome.css";
 @import "./responsive-resets";
+@import "./bootswatch.less";
+@import "./variables.less";
 
 body {
   .header {
     text-align: center;
     padding: 20px 20px 0 20px;
-    background-color: #11AD9B;
-		color: #fff;
+    background-color: @brand-primary;
+		h2, h3, h4 {
+			color: #fff;
+		}
     position: relative;
 
     .logo {
@@ -72,11 +76,11 @@ body {
         }
 
         .first-line {
-          background-color: #dcdcdc;
+          background-color: @gray-lighter;
         }
 
         .second-line {
-          background-color: #efefef;
+          background-color: #fff	;
         }
       }
 
@@ -85,13 +89,9 @@ body {
         margin-top: 40px;
         text-align: center;
 
-        .verse-input {
-          display: block;
-          padding: 5px 2px;
-          margin: 5px auto;
-          max-width: 500px;
-          width: 100%;
-        }
+        input {
+					margin-top: 10px;
+				}
       }
     }
   }

@@ -19532,7 +19532,7 @@ webpackJsonp([0],[
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
-	          _react2.default.createElement(_verse2.default, { pageNum: -1, addVerse: true, pageSize: 8, pagination: 'simple' })
+	          _react2.default.createElement(_verse2.default, { pageNum: -1, addVerse: true, pageSize: 4, pagination: 'simple' })
 	        )
 	      );
 	    }
@@ -19600,6 +19600,7 @@ webpackJsonp([0],[
 				lastId: null,
 				pageNum: 0,
 				pageSize: 10,
+				totalPages: 0,
 				totalCount: 0
 			};
 
@@ -19616,7 +19617,9 @@ webpackJsonp([0],[
 					_this2.setState({
 						loading: false,
 						verses: response.body.verses,
-						totalCount: response.body.totalCount
+						pageNum: response.body.pageNum,
+						totalCount: response.body.totalCount,
+						totalPages: response.body.totalPages
 					});
 				});
 
@@ -19655,8 +19658,8 @@ webpackJsonp([0],[
 			key: 'renderPagination',
 			value: function renderPagination() {
 
-				var items = Math.ceil(this.state.totalCount / this.state.pageSize),
-				    pageNum = this.state.pageNum < 0 ? items + this.state.pageNum + 1 : this.state.pageNum + 1;
+				var items = this.state.totalPages,
+				    pageNum = this.state.pageNum;
 
 				if (this.props.pagination === 'simple') {
 					return _react2.default.createElement(
@@ -19671,7 +19674,7 @@ webpackJsonp([0],[
 							ellipsis: true,
 							items: items,
 							maxButtons: items > 3 ? 3 : items,
-							activePage: pageNum,
+							activePage: pageNum + 1,
 							onSelect: this.onPageChange.bind(this) })
 					);
 				} else if (this.props.pagination === 'infinite') {
@@ -38155,10 +38158,11 @@ webpackJsonp([0],[
 	        ) : null,
 	        _react2.default.createElement(
 	          'form',
-	          { onSubmit: this.submitLines },
-	          _react2.default.createElement('input', { className: 'verse-input', placeholder: 'First line of your verse', value: this.state.firstLine, disabled: this.state.saving, onChange: this.updateState.bind(this, 'firstLine') }),
-	          _react2.default.createElement('input', { className: 'verse-input', placeholder: 'Second line of your verse', value: this.state.secondLine, disabled: this.state.saving, onChange: this.updateState.bind(this, 'secondLine') }),
-	          _react2.default.createElement('input', { className: 'button', type: 'submit', value: 'SUBMIT' })
+	          { className: 'form-group', onSubmit: this.submitLines },
+	          _react2.default.createElement('input', { className: 'form-control', placeholder: 'First line of your verse', value: this.state.firstLine, disabled: this.state.saving, onChange: this.updateState.bind(this, 'firstLine') }),
+	          _react2.default.createElement('input', { className: 'form-control', placeholder: 'Second line of your verse', value: this.state.secondLine, disabled: this.state.saving, onChange: this.updateState.bind(this, 'secondLine') }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { className: 'btn btn-primary', type: 'submit', value: 'SUBMIT' })
 	        )
 	      );
 	    }

@@ -18,6 +18,7 @@ export default class VerseComponent extends Component {
     lastId: null,
 		pageNum: 0,
 		pageSize: 10,
+		totalPages: 0,
 		totalCount: 0
   }
 
@@ -38,7 +39,9 @@ export default class VerseComponent extends Component {
         this.setState({
           loading: false,
           verses: response.body.verses,
-					totalCount: response.body.totalCount
+					pageNum: response.body.pageNum,
+					totalCount: response.body.totalCount,
+					totalPages: response.body.totalPages
         });
       });
 
@@ -72,8 +75,8 @@ export default class VerseComponent extends Component {
 
 	renderPagination () {
 
-		let items = Math.ceil(this.state.totalCount / this.state.pageSize),
-			pageNum = this.state.pageNum < 0 ? (items + this.state.pageNum + 1) : (this.state.pageNum + 1);
+		let items = this.state.totalPages,
+			pageNum = this.state.pageNum;
 
 		if (this.props.pagination === 'simple') {
 			return (
@@ -87,7 +90,7 @@ export default class VerseComponent extends Component {
 	          ellipsis={true}
 	          items={items}
 	          maxButtons={items > 3 ? 3 : items}
-	          activePage={pageNum}
+	          activePage={pageNum + 1}
 	          onSelect={this.onPageChange.bind(this)} />
 				</div>
 			)

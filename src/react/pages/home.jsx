@@ -12,7 +12,7 @@ export default class Homepage extends Component {
     return (
       <div>
         <div className='tab-content-section'>
-          <Verses pageNum={-1} addVerse={true} pageSize={8} pagination='simple' />
+          <Verses pageNum={-1} addVerse={true} pageSize={4} pagination='simple' />
         </div>
       </div>);
   }

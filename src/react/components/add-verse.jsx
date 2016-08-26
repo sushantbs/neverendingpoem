@@ -66,10 +66,11 @@ export default class AddVerse extends Component {
       <div className='add-verse-container'>
         <h4>Add Your Verse</h4>
         {this.state.error ? <div className='error'>{this.state.error}</div> : null}
-        <form onSubmit={this.submitLines}>
-          <input className='verse-input' placeholder='First line of your verse' value={this.state.firstLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'firstLine')} />
-          <input className='verse-input' placeholder='Second line of your verse' value={this.state.secondLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'secondLine')} />
-          <input className='button' type='submit' value='SUBMIT'/>
+        <form className='form-group' onSubmit={this.submitLines}>
+          <input className='form-control' placeholder='First line of your verse' value={this.state.firstLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'firstLine')} />
+          <input className='form-control' placeholder='Second line of your verse' value={this.state.secondLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'secondLine')} />
+					<br />
+					<input className='btn btn-primary' type='submit' value='SUBMIT'/>
         </form>
       </div>);
   }

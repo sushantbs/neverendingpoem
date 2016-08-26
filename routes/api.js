@@ -132,30 +132,41 @@ module.exports = function (options) {
 
 		var pageNum = Number(req.query.pageNum),
 			pageSize = Number(req.query.pageSize),
-			totalCount = 0;
+			totalCount = 0,
+			totalPages = 0;
 
 		dataManager.getTotalVerseCount()
       .then(function (result) {
 
 				totalCount = result;
+				totalPages = Math.ceil(result / pageSize);
 
-				var totalPages = Math.ceil(result / pageSize),
-					lastPage = result % pageSize,
+				var lastPage = result % pageSize,
 					offset = 0;
 
-				if (pageNum < 0) {
-					if (totalCount <= pageSize) {
-						pageNum = 0;
-						pageSize = 0;
-						offset = result;
-					} else if (pageNum === -1 && lastPage && (lastPage < (pageSize / 2))) {
-						offset = lastPage;
-						pageNum = totalPages + pageNum - 1;
+				if (lastPage && lastPage <= (pageSize / 2)) {
+					if (totalPages > 1) {
+						totalPages -= 1;
 					}
-					else {
+
+					if (pageNum < 0) {
 						pageNum = totalPages + pageNum;
 					}
+
+					if (pageNum === totalPages - 1) {
+						offset = lastPage;
+					}
 				}
+
+				if (totalCount <= pageSize) {
+					pageNum = 0;
+					totalPages = 1;
+					offset = totalCount;
+				}
+				else if (pageNum < 0) {
+					pageNum = totalPages + pageNum;
+				}
+
 
 				if (pageNum >= 0 && pageNum < totalPages) {
 					return dataManager.getVersePage(pageNum * pageSize, pageSize + offset);
@@ -167,7 +178,7 @@ module.exports = function (options) {
 
       })
 			.then(function (result) {
-				res.status(200).send({verses: result, totalCount: totalCount});
+				res.status(200).send({verses: result, pageNum: pageNum, totalCount: totalCount, totalPages: totalPages});
 			})
       .catch(function (err) {
 				console.log(err);
