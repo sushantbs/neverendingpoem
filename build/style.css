@@ -9788,6 +9788,7 @@ body .footer {
 body .footer h2 {
   font-size: 15px;
   margin-top: 0px;
+  color: #fff;
 }
 @media all and (max-device-width: 767px) {
   body {
