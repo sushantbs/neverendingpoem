@@ -23,11 +23,11 @@ if (process.env.NODE_ENV !== 'development') {
         },
         {
           test: /\.less$/,
-          loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader?minimize!less-loader")
         },
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+          loader: ExtractTextPlugin.extract("style-loader", "css-loader?minimize")
         },
         {
           test: /\.(png|woff|woff2|eot|ttf|svg)/,
@@ -42,7 +42,8 @@ if (process.env.NODE_ENV !== 'development') {
     },
     plugins: [
       new ExtractTextPlugin('style.css', {allChunks: true}),
-      new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+      new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
+			new webpack.optimize.UglifyJsPlugin({compress: { warnings: false }})
     ]
   }
 }
