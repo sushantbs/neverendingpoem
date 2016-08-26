@@ -4,7 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('*', function(req, res, next) {
   res.render('index', {
-    env: process.env.NODE_ENV  
+    env: process.env.NODE_ENV,
+		nep: JSON.stringify(req.nep)
   });
 });
 

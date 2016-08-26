@@ -31,7 +31,7 @@ export default class AddVerse extends Component {
   submitLines (e) {
 
     e.preventDefault();
-    
+
     let {firstLine, secondLine} = this.state;
 
     if (!_.trim(firstLine) || !_.trim(secondLine)) {
@@ -46,6 +46,7 @@ export default class AddVerse extends Component {
       .post('/api/addVerse')
       .set('content-type', 'application/json')
       .set('accept', 'application/json')
+			.set('xsrf', nepGlobal.xsrfToken)
       .send({firstLine, secondLine})
       .end((err, response) => {
         if (err) {

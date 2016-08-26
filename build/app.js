@@ -333,7 +333,7 @@ webpackJsonp([0],[
 
 	var _master2 = _interopRequireDefault(_master);
 
-	var _home = __webpack_require__(497);
+	var _home = __webpack_require__(498);
 
 	var _home2 = _interopRequireDefault(_home);
 
@@ -397,6 +397,10 @@ webpackJsonp([0],[
 
 	var _footer2 = _interopRequireDefault(_footer);
 
+	var _header = __webpack_require__(496);
+
+	var _header2 = _interopRequireDefault(_header);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -405,7 +409,7 @@ webpackJsonp([0],[
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(496);
+	__webpack_require__(497);
 
 	var Homepage = function (_Component) {
 	  _inherits(Homepage, _Component);
@@ -486,7 +490,8 @@ webpackJsonp([0],[
 	              null,
 	              ' One man\'s dream, populated by many '
 	            )
-	          )
+	          ),
+	          _react2.default.createElement(_header2.default, { selected: this.props.route.tab })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -19400,78 +19405,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 496 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 497 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _header = __webpack_require__(498);
-
-	var _header2 = _interopRequireDefault(_header);
-
-	var _verse = __webpack_require__(499);
-
-	var _verse2 = _interopRequireDefault(_verse);
-
-	var _addVerse = __webpack_require__(507);
-
-	var _addVerse2 = _interopRequireDefault(_addVerse);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var Homepage = function (_Component) {
-	  _inherits(Homepage, _Component);
-
-	  function Homepage(props) {
-	    _classCallCheck(this, Homepage);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Homepage).call(this, props));
-	  }
-
-	  _createClass(Homepage, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'tab-content-section' },
-	          _react2.default.createElement(_verse2.default, { pageNum: -1, addVerse: true, pageSize: 2, pagination: 'simple' })
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Homepage;
-	}(_react.Component);
-
-	exports.default = Homepage;
-
-/***/ },
-/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19542,6 +19475,73 @@ webpackJsonp([0],[
 	}(_react.Component);
 
 	exports.default = Header;
+
+/***/ },
+/* 497 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 498 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _verse = __webpack_require__(499);
+
+	var _verse2 = _interopRequireDefault(_verse);
+
+	var _addVerse = __webpack_require__(507);
+
+	var _addVerse2 = _interopRequireDefault(_addVerse);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Homepage = function (_Component) {
+	  _inherits(Homepage, _Component);
+
+	  function Homepage(props) {
+	    _classCallCheck(this, Homepage);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Homepage).call(this, props));
+	  }
+
+	  _createClass(Homepage, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'tab-content-section' },
+	          _react2.default.createElement(_verse2.default, { pageNum: -1, addVerse: true, pageSize: 8, pagination: 'simple' })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Homepage;
+	}(_react.Component);
+
+	exports.default = Homepage;
 
 /***/ },
 /* 499 */
@@ -38125,7 +38125,7 @@ webpackJsonp([0],[
 	        return;
 	      }
 
-	      _superagent2.default.post('/api/addVerse').set('content-type', 'application/json').set('accept', 'application/json').send({ firstLine: firstLine, secondLine: secondLine }).end(function (err, response) {
+	      _superagent2.default.post('/api/addVerse').set('content-type', 'application/json').set('accept', 'application/json').set('xsrf', nepGlobal.xsrfToken).send({ firstLine: firstLine, secondLine: secondLine }).end(function (err, response) {
 	        if (err) {
 	          console.error(err);
 	          return;
@@ -38185,7 +38185,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(498);
+	var _header = __webpack_require__(496);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38212,7 +38212,6 @@ webpackJsonp([0],[
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
 	          'h3',
 	          { className: 'centered' },
@@ -38296,7 +38295,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(498);
+	var _header = __webpack_require__(496);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38323,7 +38322,6 @@ webpackJsonp([0],[
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
 	          'h3',
 	          { className: 'centered' },
@@ -38388,7 +38386,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(498);
+	var _header = __webpack_require__(496);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38423,7 +38421,6 @@ webpackJsonp([0],[
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'tab-content-section' },
@@ -38454,7 +38451,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(498);
+	var _header = __webpack_require__(496);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38481,7 +38478,6 @@ webpackJsonp([0],[
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
 	          'h3',
 	          { className: 'centered' },
@@ -38537,7 +38533,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _header = __webpack_require__(498);
+	var _header = __webpack_require__(496);
 
 	var _header2 = _interopRequireDefault(_header);
 
@@ -38564,7 +38560,6 @@ webpackJsonp([0],[
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_header2.default, { selected: this.props.route.tab }),
 	        _react2.default.createElement(
 	          'h3',
 	          { className: 'centered' },

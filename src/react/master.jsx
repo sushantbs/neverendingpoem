@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {browserHistory} from 'react-router';
 import {Dropdown, Glyphicon, MenuItem} from 'react-bootstrap';
 import Footer from './components/footer.jsx';
+import Header from './components/header.jsx';
 
 require('../less/main.less');
 
@@ -38,6 +39,7 @@ export default class Homepage extends Component {
             <h2> NEVER ENDING POEM </h2>
             <h4> One man's dream, populated by many </h4>
           </div>
+					<Header selected={this.props.route.tab} />
         </div>
         <div className="app-section">
           {this.props.children}

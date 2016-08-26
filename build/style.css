@@ -2244,11 +2244,15 @@ body {
   .app-section {
     width: 750px;
   }
+  .header-section {
+    width: 500px;
+  }
 }
 body .header {
   text-align: center;
-  padding: 20px;
-  background-color: #b3ecff;
+  padding: 20px 20px 0 20px;
+  background-color: #11AD9B;
+  color: #fff;
   position: relative;
 }
 body .header .logo {
@@ -2269,8 +2273,29 @@ body .header .dropdown-container {
   display: inline-block;
   vertical-align: middle;
 }
+body .header .header-section {
+  margin: 0 auto;
+  text-align: center;
+}
 body .tab-container {
-  background-color: #e5e5e5;
+  display: inline-block;
+}
+body .tab-container .nav-tabs {
+  border-width: 0;
+}
+body .tab-container .nav-tabs li {
+  margin-bottom: -5px;
+}
+body .tab-container .nav-tabs li a {
+  color: #fff;
+}
+body .tab-container .nav-tabs li a:hover {
+  background-color: #11AD9B !important;
+  color: #fff !important;
+}
+body .tab-container .nav-tabs li.active a {
+  background-color: #fff !important;
+  color: #11AD9B !important;
 }
 body .app-section .tab-content-section {
   padding: 10px;

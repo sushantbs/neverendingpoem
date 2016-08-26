@@ -10,7 +10,6 @@ export default class Aboutpage extends Component {
   render () {
     return (
       <div>
-        <Header selected={this.props.route.tab} />
         <h3 className='centered'>About the Poem</h3>
         <div className='tab-content-section'>
           <p>It was on a hot summer day many years ago<br/>

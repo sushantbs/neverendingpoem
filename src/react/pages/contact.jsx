@@ -10,7 +10,6 @@ export default class Contactpage extends Component {
   render () {
     return (
       <div>
-        <Header selected={this.props.route.tab} />
         <h3 className='centered'>Contact</h3>
         <div className='tab-content-section'>
           <p>If you make a mistake in your submission, there is no way to correct it. Except, you can send me an email at <a href='mailto:admin@neverendingpoem.com' target='_blank'>admin@neverendingpoem.com</a>, specifically stating what mistake you made and what correction you want. I will get to it soon enough.</p>

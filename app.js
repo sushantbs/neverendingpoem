@@ -5,7 +5,8 @@ var serveStatic = require('serve-static');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var sessions = require('client-sessions');
+var csrf = require('csrf')();
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
@@ -24,8 +25,65 @@ function startWebServer (mongoClient) {
   //app.use(favicon(__dirname + '/public/favicon.ico'));
   app.use(logger('dev'));
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({extended: false}));
   app.use(cookieParser());
+
+	function xsrfVerify() { return function(req, res, next) {
+	  if (req.method != 'GET') {
+	    var xsrf = '';
+	    if (req.headers && req.headers.xsrf) {
+	      xsrf = req.headers.xsrf;
+	    } else if (req.body && req.body.xsrf) {
+	      xsrf = req.body.xsrf
+	    }
+	    var valid = csrf.verify(req.session.xsrf, xsrf);
+	    if (!valid) {
+	      return res.status(403).send('XSRF verification failed. Bot Begone!');
+	    }
+	  }
+	  next();
+	}}
+
+	function sessionStore() {
+
+		var csession = sessions({
+		    cookieName: 'session',
+		    secret: 'NlC%YtbBC+rta$sL@Rpw',
+		    duration: 24 * 60 * 60 * 1000,
+		    cookie: {
+		        path: '/',
+		        httpOnly: true
+		    }
+		});
+		return csession;
+	}
+
+	function session() { return function(req, res, next) {
+
+		if (!req.nep) {
+			req.nep = {};
+		}
+	  // update the last session access time (after taking backup)
+	  var now = Date.now();
+	  req.session.ltime = now;
+
+	  // xsrf token generation
+	  if (!req.session.xsrf) {
+	    req.session.xsrf = csrf.secretSync();
+	  }
+	  var xsrfToken = csrf.create(req.session.xsrf);
+	  req.nep.xsrfToken = xsrfToken;
+
+	  // session creation time
+	  if (!req.session.ctime) {
+	    req.session.ctime = now;
+	  }
+
+	  next();
+	}}
+
+	// middleware
+	app.use([sessionStore(), session(), xsrfVerify()]);
 
   app.use('/static', express.static(path.join(__dirname, 'build')));
   app.use('/imgs', express.static(path.join(__dirname, 'src/imgs')));

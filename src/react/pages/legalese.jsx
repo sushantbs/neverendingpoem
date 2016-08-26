@@ -10,7 +10,6 @@ export default class Legalpage extends Component {
   render () {
     return (
       <div>
-        <Header selected={this.props.route.tab} />
         <h3 className='centered'>Legalese</h3>
         <div className='tab-content-section'>
           <p>Details of the Creative Commons License in use on this site can be read at: <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'>http://creativecommons.org/licenses/by-nc-sa/4.0/</a></p>

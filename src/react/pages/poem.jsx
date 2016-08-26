@@ -12,7 +12,6 @@ export default class Poempage extends Component {
   render () {
     return (
       <div>
-        <Header selected={this.props.route.tab} />
         <div className='tab-content-section'>
           <Verses scrollUp={'...'} pagination='infinite' pageNum={0} pageSize={100} addVerse={false} />
         </div>

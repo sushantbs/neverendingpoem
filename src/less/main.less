@@ -5,8 +5,9 @@
 body {
   .header {
     text-align: center;
-    padding: 20px;
-    background-color: #b3ecff;
+    padding: 20px 20px 0 20px;
+    background-color: #11AD9B;
+		color: #fff;
     position: relative;
 
     .logo {
@@ -29,10 +30,34 @@ body {
       display: inline-block;
       vertical-align: middle;
     }
+
+		.header-section {
+			margin: 0 auto;
+			text-align: center;
+		}
   }
 
   .tab-container {
-    background-color: #e5e5e5;
+		display: inline-block;
+		.nav-tabs {
+			border-width: 0;
+			li {
+				margin-bottom: -5px;
+				a {
+					color: #fff;
+					&:hover {
+						background-color: #11AD9B !important;
+						color: #fff !important;
+					}
+				}
+				&.active {
+					a {
+						background-color: #fff !important;
+						color: #11AD9B !important;
+					}
+				}
+			}
+		}
   }
 
   .app-section {

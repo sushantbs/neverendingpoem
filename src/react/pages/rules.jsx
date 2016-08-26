@@ -10,7 +10,6 @@ export default class Rulespage extends Component {
   render () {
     return (
       <div>
-        <Header selected={this.props.route.tab} />
         <h3 className='centered'>Rules</h3>
         <div className='tab-content-section'>
           <p>Rule #1: Use any word from the previous line, so long as it is not something lame like an article, preposition, pronoun and other such. You can use derivatives too. Refer to the first page of the poem for examples.</p>
