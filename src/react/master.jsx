@@ -39,7 +39,7 @@ export default class Homepage extends Component {
             <h2> NEVER ENDING POEM </h2>
             <h4> One man's dream, populated by many </h4>
           </div>
-					<Header selected={this.props.route.tab} />
+					<Header selected={this.props.routes && this.props.routes.length && this.props.routes[this.props.routes.length - 1].tab} />
         </div>
         <div className="app-section">
           {this.props.children}
