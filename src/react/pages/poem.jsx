@@ -12,6 +12,7 @@ export default class Poempage extends Component {
   render () {
     return (
       <div>
+				<h3 className='centered'>The Poem</h3>
         <div className='tab-content-section'>
           <Verses scrollUp={'...'} pagination='infinite' pageNum={0} pageSize={100} addVerse={false} />
         </div>

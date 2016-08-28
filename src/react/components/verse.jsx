@@ -123,7 +123,7 @@ export default class VerseComponent extends Component {
 	          </div>
 	        ) : null))
 				}
-        {this.props.addVerse ? (<AddVerse onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
+        {this.props.addVerse && (this.state.pageNum === this.state.totalPages - 1) ? (<AddVerse onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
       </div>
     )
   }
