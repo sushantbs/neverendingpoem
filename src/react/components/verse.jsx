@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import request from 'superagent';
 import _ from 'lodash';
-import AddVerse from './add-verse.jsx';
 import {Pagination} from 'react-bootstrap';
+import AddVerse from './add-verse.jsx';
+import RuleBlock from './rule-block.jsx';
 
 export default class VerseComponent extends Component {
 
@@ -112,8 +113,12 @@ export default class VerseComponent extends Component {
 	}
 
   render () {
+
+		let isLastPage = (this.state.pageNum === this.state.totalPages - 1);
+
     return (
       <div className='verse-container'>
+				{this.props.ruleCount && isLastPage ? (<RuleBlock ruleCount={2} showMore={true} />) : null}
 				{this.renderPagination()}
         {this.state.loading ? (<div className='verse-line loader'>Loading...</div>) :
 					_.map(this.state.verses, (verse, index) => (verse.verse ? (
@@ -123,7 +128,7 @@ export default class VerseComponent extends Component {
 	          </div>
 	        ) : null))
 				}
-        {this.props.addVerse && (this.state.pageNum === this.state.totalPages - 1) ? (<AddVerse onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
+        {this.props.addVerse && isLastPage ? (<AddVerse onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
       </div>
     )
   }
