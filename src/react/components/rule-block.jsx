@@ -21,7 +21,7 @@ export default class RuleBlock extends Component {
     return (
       <div className='rule-block-container'>
 				{
-					_.map(rules, (rule, index) => (index < ruleCount ? (<p>{rule}</p>) : null))
+					_.map(rules, (rule, index) => (index < ruleCount ? (<p key={'rule-' + index}>{rule}</p>) : null))
 				}
 				{showMore ? (<Link to='/rules'>{rules.length - ruleCount} more rules...</Link>) : null}
       </div>);

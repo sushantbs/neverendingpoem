@@ -25,8 +25,26 @@ export default class AddVerse extends Component {
     var update = {};
 
     update[line] = e.target.value;
-    this.setState(update);
+
+		if (update[line].length === 80) {
+			this.state.error = '*You have reached the character limit (80) at line ' + line;
+		}
+		else {
+			this.state.error = null;
+		}
+
+		this.setState(update);
   }
+
+	validateVerse () {
+		let {firstLine, secondLine} = this.state;
+
+		if (typeof this.props.validateVerse === 'function') {
+			return this.props.validateVerse({firstLine, secondLine});
+		} else {
+			return true;
+		}
+	}
 
   submitLines (e) {
 
@@ -41,6 +59,14 @@ export default class AddVerse extends Component {
 
       return;
     }
+
+		if (!this.validateVerse()) {
+			this.setState({
+				error: '*You need to have a word in common with the last verse (a, an, of, the, etc do not count).'
+			});
+
+			return;
+		}
 
     request
       .post('/api/addVerse')
@@ -67,8 +93,8 @@ export default class AddVerse extends Component {
         <h4>Add Your Verse</h4>
         {this.state.error ? <div className='error'>{this.state.error}</div> : null}
         <form className='form-group' onSubmit={this.submitLines}>
-          <input className='form-control' placeholder='First line of your verse' value={this.state.firstLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'firstLine')} />
-          <input className='form-control' placeholder='Second line of your verse' value={this.state.secondLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'secondLine')} />
+          <input maxLength={80} className='form-control' placeholder='First line of your verse' value={this.state.firstLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'firstLine')} />
+          <input maxLength={80} className='form-control' placeholder='Second line of your verse' value={this.state.secondLine} disabled={this.state.saving} onChange={this.updateState.bind(this, 'secondLine')} />
 					<br />
 					<input className='btn btn-primary' type='submit' value='SUBMIT'/>
         </form>

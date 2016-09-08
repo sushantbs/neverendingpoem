@@ -4,6 +4,7 @@ import _ from 'lodash';
 import {Pagination} from 'react-bootstrap';
 import AddVerse from './add-verse.jsx';
 import RuleBlock from './rule-block.jsx';
+import {exceptionWords} from '../../../config/config.js';
 
 export default class VerseComponent extends Component {
 
@@ -27,13 +28,14 @@ export default class VerseComponent extends Component {
 
     super(props);
     this.updatePoemPage = this.updatePoemPage.bind(this);
+		this.validateVerse = this.validateVerse.bind(this);
   }
 
-  fetchVerses () {
+  fetchVerses (alwaysShowLastPage) {
 
     request
       .get('/api/versePage?a=' + Math.random())
-			.query({pageNum: this.state.pageNum, pageSize: this.state.pageSize})
+			.query({pageNum: (alwaysShowLastPage ? -1 : this.state.pageNum), pageSize: this.state.pageSize})
       .set('accept', 'application/json')
       .set('content-type', 'application/json')
       .end((err, response) => {
@@ -51,8 +53,38 @@ export default class VerseComponent extends Component {
     });
   }
 
+	sanitizeTokens (tokenArr) {
+		return _.map(tokenArr, (token) => (token.match(/^[a-zA-Z0-9-]+/)[0]));
+	}
+
+	validateVerse ({firstLine, secondLine}) {
+
+		let lastVerse = this.state.verses[this.state.verses.length - 1];
+		let existingTokens = this.sanitizeTokens(lastVerse.verse[1].split(' ').concat(lastVerse.verse[0].split(' ')));
+		let newVerseTokens = this.sanitizeTokens(firstLine.split(' ').concat(secondLine.split(' ')));
+		let matching = false;
+
+		_.find(newVerseTokens, (nt) => {
+
+			if (matching) {
+				return;
+			}
+
+			if (_.indexOf(exceptionWords, nt) !== -1) {
+				return;
+			}
+
+			if (_.indexOf(existingTokens, nt) !== -1) {
+				matching = true;
+			}
+
+		});
+
+		return matching;
+	}
+
   updatePoemPage (verse) {
-    this.fetchVerses();
+    this.fetchVerses(true);
   }
 
   componentDidMount () {
@@ -128,7 +160,7 @@ export default class VerseComponent extends Component {
 	          </div>
 	        ) : null))
 				}
-        {this.props.addVerse && isLastPage ? (<AddVerse onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
+        {this.props.addVerse && isLastPage ? (<AddVerse validateVerse={this.validateVerse} onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
       </div>
     )
   }
