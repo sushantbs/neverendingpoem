@@ -59,6 +59,10 @@ export default class VerseComponent extends Component {
 
 	validateVerse ({firstLine, secondLine}) {
 
+		if (!this.state.verses.length) {
+			return true;
+		}
+
 		let lastVerse = this.state.verses[this.state.verses.length - 1];
 		let existingTokens = this.sanitizeTokens(lastVerse.verse[1].split(' ').concat(lastVerse.verse[0].split(' ')));
 		let newVerseTokens = this.sanitizeTokens(firstLine.split(' ').concat(secondLine.split(' ')));
