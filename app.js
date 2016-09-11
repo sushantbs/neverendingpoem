@@ -12,20 +12,6 @@ var users = require('./routes/users');
 var api = require('./routes/api');
 var debug = require('debug')('nep:server');
 var http = require('http');
-var mkdirp = require('mkdirp');
-var Console = require('console').Console;
-var fs = require('fs');
-
-var console = {
-	log: function () {
-		var c = require('console')
-		c.log.call(c, arguments);
-	},
-	error: function () {
-		var c = require('console');
-		c.error.call(c, arguments);
-	}
-};
 
 process.on('uncaughtException', function (err) {
 	console.error('uncaughtException: ', err.stack || err);
@@ -255,22 +241,6 @@ function startMongoClient () {
   });
 }
 
-
-mkdirp(__dirname + '/logs', function (err) {
-
-	var logDir;
-	if (err) {
-		console.error(err);
-		logDir = '.';
-	} else {
-		logDir = './logs';
-	}
-
-	var output = fs.createWriteStream(logDir + '/stdout.log');
-	var errorOutput = fs.createWriteStream(logDir + '/stderr.log');
-
-	console = new Console(output, errorOutput);
-})
 try {
   startMongoClient();
 }
