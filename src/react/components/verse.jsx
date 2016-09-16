@@ -164,7 +164,7 @@ export default class VerseComponent extends Component {
 	          </div>
 	        ) : null))
 				}
-        {this.props.addVerse && isLastPage ? (<AddVerse validateVerse={this.validateVerse} onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
+        {this.props.addVerse && isLastPage ? (<AddVerse onAdd={this.updatePoemPage} disabled={this.state.saving} />) : null}
       </div>
     )
   }

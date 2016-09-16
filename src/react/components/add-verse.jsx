@@ -27,7 +27,7 @@ export default class AddVerse extends Component {
     update[line] = e.target.value;
 
 		if (update[line].length === 80) {
-			this.state.error = '*You have reached the character limit (80) at line ' + line;
+			this.state.error = '*You have reached the 80-character limit for each line';
 		}
 		else {
 			this.state.error = null;
