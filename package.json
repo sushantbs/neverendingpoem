@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "start": "node app.js",
+    "start": "NODE_ENV=production node app.js",
     "dev": "NODE_ENV=development webpack-dev-server --devtool eval --port 8081 --output-public-path http://localhost:8081/ --hot --progress --colors --content-base build & NODE_ENV=development node --debug app.js"
   },
   "dependencies": {

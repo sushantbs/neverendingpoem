@@ -13,6 +13,7 @@ var api = require('./routes/api');
 var debug = require('debug')('nep:server');
 var http = require('http');
 
+
 process.on('uncaughtException', function (err) {
 	console.error('uncaughtException: ', err.stack || err);
 });
@@ -25,9 +26,9 @@ function startWebServer (mongoClient) {
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
 
-  // uncomment after placing your favicon in /public
-  //app.use(favicon(__dirname + '/public/favicon.ico'));
-  app.use(logger('dev'));
+  app.use(favicon(__dirname + '/src/imgs/TempLogo.png'));
+
+	app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(cookieParser());
