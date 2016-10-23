@@ -119,7 +119,7 @@ export default class VerseComponent extends Component {
 			return (
 				<div className='centered'>
 					<Pagination
-	          bsSize='medium'
+	          bsSize='small'
 	          first={true}
 	          last={true}
 						prev={true}
