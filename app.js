@@ -26,7 +26,7 @@ function startWebServer (mongoClient) {
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
 
-  app.use(favicon(__dirname + '/src/imgs/TempLogo.png'));
+  app.use(favicon(__dirname + '/src/imgs/favicon.ico'));
 
 	app.use(logger('dev'));
   app.use(bodyParser.json());
@@ -132,8 +132,8 @@ function startWebServer (mongoClient) {
    * Get port from environment and store in Express.
    */
 
-  var port = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || process.env.NODE_PORT || '3000');
-  var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+  var port = normalizePort(process.env.NODE_PORT || '3000');
+  var ip = '127.0.0.1';
   app.set('port', port);
 
   /**

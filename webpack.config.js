@@ -51,7 +51,7 @@ else {
   module.exports = {
     entry: {
       app:[
-        'webpack-dev-server/client?http://localhost:8081',
+        'webpack-dev-server/client?http://localhost:8082',
         'webpack/hot/dev-server',
         './src/react/app.jsx'
       ],

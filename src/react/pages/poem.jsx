@@ -9,12 +9,16 @@ export default class Poempage extends Component {
     super(props);
   }
 
+  componentDidMount () {
+  
+  }
+
   render () {
     return (
       <div>
 				<h3 className='centered'>The Poem</h3>
         <div className='tab-content-section'>
-          <Verses scrollUp={'...'} pagination='infinite' pageNum={0} pageSize={100} addVerse={false} />
+          <Verses scrollUp={'...'} pagination='infinite' pageNum={0} pageSize={20} addVerse={false} />
         </div>
       </div>);
   }
