@@ -9,7 +9,7 @@ export default class Poempage extends Component {
 
   state = {
     pageNum : -1,
-    pageSize: 10,
+    pageSize: 25,
     hasMore: true,
     verses: [],
     totalCount: -1
