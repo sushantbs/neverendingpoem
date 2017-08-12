@@ -132,8 +132,7 @@ function startWebServer (mongoClient) {
    * Get port from environment and store in Express.
    */
 
-  var port = normalizePort(process.env.NODE_PORT || '3000');
-  var ip = '127.0.0.1';
+  var port = normalizePort(process.env.PORT || process.env.NODE_PORT || 3000);
   app.set('port', port);
 
   /**
@@ -146,7 +145,7 @@ function startWebServer (mongoClient) {
    * Listen on provided port, on all network interfaces.
    */
 
-  server.listen(port, ip);
+  server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
 
@@ -217,18 +216,7 @@ function startMongoClient () {
   var mongodb = require('mongodb');
   var MongoClient = mongodb.MongoClient;
 
-  // default to a 'localhost' configuration:
-  var connection_string = 'localhost:27017/nep';
-  // if OPENSHIFT env variables are present, use the available connection info:
-  if(process.env.OPENSHIFT_MONGODB_DB_USERNAME){
-    connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-    process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-    process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-    process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-    process.env.OPENSHIFT_APP_NAME;
-  }
-
-  var url = 'mongodb://' + connection_string;
+  var url = process.env.MONGODB_URI;
 
   MongoClient.connect(url, function(err, db) {
 
