@@ -1,3 +1,3 @@
-The OpenShift `nodejs` cartridge documentation can be found at:
+http://neverendingpoem.com
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+Built with <3 for a friend
