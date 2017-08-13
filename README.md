@@ -1,3 +1,5 @@
 http://neverendingpoem.com
 
-Built with <3 for a friend
+MERN, FTW!
+
+Built with &#2665; for a friend
