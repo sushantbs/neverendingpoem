@@ -1,12 +1,12 @@
 {
-  "name": "NeverEndingPoem",
+  "name": "nep-server",
   "version": "0.0.0",
   "private": true,
   "main": "app.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "start": "NODE_ENV=production node app.js",
-    "dev": "NODE_ENV=development webpack-dev-server --devtool eval --port 8082 --output-public-path http://localhost:8081/ --hot --progress --colors --content-base build & NODE_ENV=development node --debug app.js"
+    "dev": "NODE_ENV=development webpack-dev-server --devtool eval --port 8082 --output-public-path http://localhost:8081/ --hot --progress --colors --content-base build & NODE_ENV=development node --inspect app.js"
   },
   "dependencies": {
     "async": "^1.5.2",
@@ -25,7 +25,7 @@
     "less": "^2.7.1",
     "lodash": "^4.15.0",
     "mkdirp": "^0.5.1",
-    "mongodb": "^2.2.5",
+    "mongodb": "^3.6.2",
     "morgan": "~1.5.3",
     "react": "^15.1.0",
     "react-bootstrap": "^0.30.2",

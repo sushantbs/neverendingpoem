@@ -1,104 +1,104 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var serveStatic = require('serve-static');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var sessions = require('client-sessions');
-var csrf = require('csrf')();
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var api = require('./routes/api');
-var debug = require('debug')('nep:server');
-var http = require('http');
+var express = require("express");
+var path = require("path");
+var favicon = require("serve-favicon");
+var serveStatic = require("serve-static");
+var logger = require("morgan");
+var cookieParser = require("cookie-parser");
+var bodyParser = require("body-parser");
+var sessions = require("client-sessions");
+var csrf = require("csrf")();
+var routes = require("./routes/index");
+var users = require("./routes/users");
+var api = require("./routes/api");
+var debug = require("debug")("nep:server");
+var http = require("http");
 
-
-process.on('uncaughtException', function (err) {
-	console.error('uncaughtException: ', err.stack || err);
+process.on("uncaughtException", function (err) {
+  console.error("uncaughtException: ", err.stack || err);
 });
 
-function startWebServer (mongoClient) {
-
+function startWebServer(mongoClient) {
   var app = express();
 
   // view engine setup
-  app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'jade');
+  app.set("views", path.join(__dirname, "views"));
+  app.set("view engine", "jade");
 
-  app.use(favicon(__dirname + '/src/imgs/favicon.ico'));
+  app.use(favicon(__dirname + "/src/imgs/favicon.ico"));
 
-	app.use(logger('dev'));
+  app.use(logger("dev"));
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({extended: false}));
+  app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
 
-	function xsrfVerify() { return function(req, res, next) {
-	  if (req.method != 'GET') {
-	    var xsrf = '';
-	    if (req.headers && req.headers.xsrf) {
-	      xsrf = req.headers.xsrf;
-	    } else if (req.body && req.body.xsrf) {
-	      xsrf = req.body.xsrf
-	    }
-	    var valid = csrf.verify(req.session.xsrf, xsrf);
-	    if (!valid) {
-	      return res.status(403).send('XSRF verification failed. Bot Begone!');
-	    }
-	  }
-	  next();
-	}}
+  function xsrfVerify() {
+    return function (req, res, next) {
+      if (req.method != "GET") {
+        var xsrf = "";
+        if (req.headers && req.headers.xsrf) {
+          xsrf = req.headers.xsrf;
+        } else if (req.body && req.body.xsrf) {
+          xsrf = req.body.xsrf;
+        }
+        var valid = csrf.verify(req.session.xsrf, xsrf);
+        if (!valid) {
+          return res.status(403).send("XSRF verification failed. Bot Begone!");
+        }
+      }
+      next();
+    };
+  }
 
-	function sessionStore() {
+  function sessionStore() {
+    var csession = sessions({
+      cookieName: "session",
+      secret: "NlC%YtbBC+rta$sL@Rpw",
+      duration: 24 * 60 * 60 * 1000,
+      cookie: {
+        path: "/",
+        httpOnly: true,
+      },
+    });
+    return csession;
+  }
 
-		var csession = sessions({
-		    cookieName: 'session',
-		    secret: 'NlC%YtbBC+rta$sL@Rpw',
-		    duration: 24 * 60 * 60 * 1000,
-		    cookie: {
-		        path: '/',
-		        httpOnly: true
-		    }
-		});
-		return csession;
-	}
+  function session() {
+    return function (req, res, next) {
+      if (!req.nep) {
+        req.nep = {};
+      }
+      // update the last session access time (after taking backup)
+      var now = Date.now();
+      req.session.ltime = now;
 
-	function session() { return function(req, res, next) {
+      // xsrf token generation
+      if (!req.session.xsrf) {
+        req.session.xsrf = csrf.secretSync();
+      }
+      var xsrfToken = csrf.create(req.session.xsrf);
+      req.nep.xsrfToken = xsrfToken;
 
-		if (!req.nep) {
-			req.nep = {};
-		}
-	  // update the last session access time (after taking backup)
-	  var now = Date.now();
-	  req.session.ltime = now;
+      // session creation time
+      if (!req.session.ctime) {
+        req.session.ctime = now;
+      }
 
-	  // xsrf token generation
-	  if (!req.session.xsrf) {
-	    req.session.xsrf = csrf.secretSync();
-	  }
-	  var xsrfToken = csrf.create(req.session.xsrf);
-	  req.nep.xsrfToken = xsrfToken;
+      next();
+    };
+  }
 
-	  // session creation time
-	  if (!req.session.ctime) {
-	    req.session.ctime = now;
-	  }
+  // middleware
+  app.use([sessionStore(), session(), xsrfVerify()]);
 
-	  next();
-	}}
-
-	// middleware
-	app.use([sessionStore(), session(), xsrfVerify()]);
-
-  app.use('/static', express.static(path.join(__dirname, 'build')));
-  app.use('/imgs', express.static(path.join(__dirname, 'src/imgs')));
-  app.use('/users', users);
-  app.use('/api', api({db: mongoClient}));
-  app.use('/', routes);
+  app.use("/static", express.static(path.join(__dirname, "build")));
+  app.use("/imgs", express.static(path.join(__dirname, "src/imgs")));
+  app.use("/users", users);
+  app.use("/api", api({ db: mongoClient }));
+  app.use("/", routes);
 
   // catch 404 and forward to error handler
-  app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+  app.use(function (req, res, next) {
+    var err = new Error("Not Found");
     err.status = 404;
     next(err);
   });
@@ -107,33 +107,32 @@ function startWebServer (mongoClient) {
 
   // development error handler
   // will print stacktrace
-  if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+  if (app.get("env") === "development") {
+    app.use(function (err, req, res, next) {
       res.status(err.status || 500);
-      res.render('error', {
+      res.render("error", {
         message: err.message,
-        error: err
+        error: err,
       });
     });
   }
 
   // production error handler
   // no stacktraces leaked to user
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render("error", {
       message: err.message,
-      error: {}
+      error: {},
     });
   });
-
 
   /**
    * Get port from environment and store in Express.
    */
 
   var port = normalizePort(process.env.PORT || process.env.NODE_PORT || 3000);
-  app.set('port', port);
+  app.set("port", port);
 
   /**
    * Create HTTP server.
@@ -146,8 +145,8 @@ function startWebServer (mongoClient) {
    */
 
   server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
+  server.on("error", onError);
+  server.on("listening", onListening);
 
   /**
    * Normalize a port into a number, string, or false.
@@ -174,22 +173,20 @@ function startWebServer (mongoClient) {
    */
 
   function onError(error) {
-    if (error.syscall !== 'listen') {
+    if (error.syscall !== "listen") {
       throw error;
     }
 
-    var bind = typeof port === 'string'
-      ? 'Pipe ' + port
-      : 'Port ' + port;
+    var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
     // handle specific listen errors with friendly messages
     switch (error.code) {
-      case 'EACCES':
-        console.error(bind + ' requires elevated privileges');
+      case "EACCES":
+        console.error(bind + " requires elevated privileges");
         process.exit(1);
         break;
-      case 'EADDRINUSE':
-        console.error(bind + ' is already in use');
+      case "EADDRINUSE":
+        console.error(bind + " is already in use");
         process.exit(1);
         break;
       default:
@@ -203,36 +200,31 @@ function startWebServer (mongoClient) {
 
   function onListening() {
     var addr = server.address();
-    var bind = typeof addr === 'string'
-      ? 'pipe ' + addr
-      : 'port ' + addr.port;
-    debug('Listening on ' + bind);
-    console.log('Listening on ' + bind);
+    var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+    debug("Listening on " + bind);
+    console.log("Listening on " + bind);
   }
 }
 
-function startMongoClient () {
-
-  var mongodb = require('mongodb');
+function startMongoClient() {
+  var mongodb = require("mongodb");
   var MongoClient = mongodb.MongoClient;
 
-  var url = process.env.MONGODB_URI;
+  var url = process.env.NEP_MONGODB_URI;
 
-  MongoClient.connect(url, function(err, db) {
-
+  MongoClient.connect(url, function (err, client) {
     if (err) {
       console.log(err);
       process.exit(1);
     }
 
-    console.log('starting web server');
-    startWebServer(db);
+    console.log("starting web server");
+    startWebServer(client.db("nep"));
   });
 }
 
 try {
   startMongoClient();
-}
-catch (e) {
+} catch (e) {
   console.log(e);
 }
